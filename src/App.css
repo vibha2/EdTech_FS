@@ -1,1 +1,8 @@
 /* write your css here */
+@talwind base;
+@talwind components;
+@talwind utilities;
+
+html, body {
+    overflow-x: hidden;
+}

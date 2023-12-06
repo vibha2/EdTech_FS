@@ -7,7 +7,8 @@ import Banner from "../assets/Images/banner.mp4";
 import CodeBlocks from "../components/core/HomePage/CodeBlocks";
 import  TimeLineSection from "../components/core/HomePage/TimeLineSection";
 import LearningLanguageSection from "../components/core/HomePage/LearningLanguageSection";
-
+import InstructorSection from "../components/core/HomePage/InstructorSection";
+import ExploreMore from "../components/core/HomePage/ExploreMore";
 
 const Home = () => {
   return (
@@ -144,6 +145,9 @@ const Home = () => {
 
          />
         </div>
+
+        <ExploreMore />
+
     </div>
 
     {/* Section2 */}
@@ -172,7 +176,7 @@ const Home = () => {
         </div>
 
         {/* Second */}
-        <div className='mx-auto w-11/12 max-w-maxContent flex flex-col items-center justify-between gap-7'>
+        <div className=' mx-auto w-11/12 max-w-maxContent flex flex-col items-center justify-between gap-7'>
          
           <div className='flex flex-row gap-10 mb-10 mt-[95px]'>
               <div className='text-4xl font-semibold w-[45%] '>
@@ -203,6 +207,15 @@ const Home = () => {
     </div>
 
     {/* Section3 */}
+    <div className='w-11/12 mx-auto max-w-maxContent flex flex-col items-center justify-between gap-8
+    bg-richblack-900 text-white '>
+
+          <InstructorSection />
+
+          {/* <h2 className='text-center text-4xl font-semibold mt-10 '>Reviews from other learners</h2> */}
+
+          {/* Review slider */}
+    </div>
 
     {/* Footer */}
     

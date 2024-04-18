@@ -356,5 +356,22 @@ try{
 
 };
 
+// http://localhost:4000/api/v1/auth/sendotp
+// http://localhost:4000/api/v1/auth/signup
+// {
+//     "firstName": "chiku",
+//     "lastName": "sahu",
+//     "password": "123456",
+//     "confirmPassword":"123456",
+//     "email":"juhisahu2203@gmail.com",
+//     "accountType":"Student",
+//     "otp":"904396"
 
+// }
+
+// http://localhost:4000/api/v1/auth/login
+// {
+//     "email": "vibha.sahu@ssipmt.com",
+//     "password":"123456"
+// }
 

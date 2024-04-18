@@ -13,11 +13,13 @@ function ResetPassword() {
 
     const handleOnSubmit = (event) => {
         event.preventDefault();
+        console.log("okayyyyyyy go")
         dispatch(getPasswordResetToken(email, setEmailSent));
+        console.log("handle submit")
     }
 
   return (
-    <div className='text-white flex justify-center items-center'>
+    <div className='text-white flex justify-center items-center p-10'>
         {
             loading? (
                 <div>
@@ -39,7 +41,7 @@ function ResetPassword() {
                     }
                 </p>
                 <form 
-                onSubmit={()=>handleOnSubmit}
+                onSubmit={handleOnSubmit}
                 >
                     {
                         !emailSent && (
@@ -49,6 +51,7 @@ function ResetPassword() {
                                 required
                                 type='email'
                                 name='email'
+                                className='text-black'
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 placeholder='Enter Your Email Address'
@@ -57,6 +60,9 @@ function ResetPassword() {
                         )
 
 
+                    }
+                    {
+                        console.log("in resetpasssword file")
                     }
                     <button 
                     type='submit'

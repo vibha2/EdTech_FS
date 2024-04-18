@@ -32,7 +32,7 @@ export function sendOtp(email, navigate) {
       }
 
       toast.success("OTP Sent Successfully")
-    //   navigate("/verify-email")
+      navigate("/verify-email")
     } catch (error) {
       console.log("SENDOTP API ERROR............", error)
       toast.error("Could Not Send OTP")
@@ -68,7 +68,8 @@ export function signUp(
 
       console.log("SIGNUP API RESPONSE............", response)
 
-      if (!response.data.success) {
+      if (!response.data.succes) {
+        console.log("error in authapi");
         throw new Error(response.data.message)
       }
       toast.success("Signup Successful")
@@ -144,7 +145,7 @@ export function login(email, password, navigate) {
 
 export function resetPassword(password, confirmPassword, token, navigate) {
   return async (dispatch) => {
-    const toastId = toast.loading("Loading...")
+    // const toastId = toast.loading("Loading...")
     dispatch(setLoading(true))
     try {
       const response = await apiConnector("POST", RESETPASSWORD_API, {
@@ -159,13 +160,15 @@ export function resetPassword(password, confirmPassword, token, navigate) {
         throw new Error(response.data.message)
       }
 
+      console.log("reset pass sucessfully");
+
       toast.success("Password Reset Successfully")
       navigate("/login")
     } catch (error) {
       console.log("RESETPASSWORD ERROR............", error)
       toast.error("Failed To Reset Password")
     }
-    toast.dismiss(toastId)
+    // toast.dismiss(toastId)
     dispatch(setLoading(false))
   }
 }
@@ -187,11 +190,12 @@ export function getPasswordResetToken(email, setEmailSent){
   return async(dispatch) => {
     dispatch(setLoading(true));
     try{
+      console.log("Started.............")
       // we have sent here email only in bdy..because controller ke code me 1 hi parameter h..that is email
-      const response = await apiConnector("POST", RESETPASSWORD_API, {email})
-      console("RESET PASSWORD TOKEN RESPONSE...", response);
+      const response = await apiConnector("POST", RESETPASSTOKEN_API, {email})
+      console.log("RESET PASSWORD TOKEN RESPONSE...", response);
 
-      if(response.data.success){
+      if(!response.data.success){
         throw new Error(response.data.message);
       }
 
@@ -200,8 +204,8 @@ export function getPasswordResetToken(email, setEmailSent){
       
     }
     catch(error){
-      console.log("RESET PASSWORD TOKEN Error");
-      toast.error("Failed To Send Reset Email")
+      console.log("RESET PASSWORD TOKEN Error=> ",error);
+      toast.error("Failed To Send Reset Email");
     }
     dispatch(setLoading(false));
   }

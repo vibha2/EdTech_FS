@@ -74,7 +74,7 @@ function Navbar() {
                                     <p>{link.title}</p>
                                     <IoIosArrowDropdownCircle/>
 
-                                    <div className='invisible absolute left-[-50%] 
+                                    <div className='invisible z-50 absolute left-[-50%] 
                                     translate-x-[-20%]
                                     translate-y-[80%]
                                     
